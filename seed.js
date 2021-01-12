@@ -1,5 +1,3 @@
-const path = require('path');
-const express = require("express");
 const mongoose = require('mongoose');
 const Image = require('./models/image')
 
@@ -16,21 +14,10 @@ db.once('open', function() {
     console.log("Database connected");
 });
 
-const app = express();
+const seedDb = async() => {
+    await Image.deleteMany({});
+    const i = new Image({"user_id": "Vijay", "url":"https://bit.ly/2XweeNg", "private": false});
+    await i.save();
+}
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.get('/', (req, res) => {
-    res.render("home");
-});
-
-app.get('/images/new', async (req, res) => {
-    const image = new Image({"user_id": "Vijay", "url":"https://bit.ly/2XweeNg", "private": false});
-    await image.save();
-    res.send(image);
-});
-
-app.listen(3000, () => {
-    console.log("Example app listening at port 3000");
-})
+seedDb();
