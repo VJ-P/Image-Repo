@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require("express");
 const mongoose = require('mongoose');
-const Image = require('./models/image')
+const Image = require('./models/image');
+const e = require('express');
 
 // Add connection to local mongodb database
 mongoose.connect('mongodb://localhost:27017/image-repo', {
@@ -21,11 +22,23 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(express.urlencoded({extended: true}))
+
 app.get('/', (req, res) => {
     res.render("home");
 });
 
-app.get('/images/public', async(req, res) => {
+app.get('/images/new', (req, res) => {
+    res.render('images/new');
+});
+
+app.post('/images', async (req, res) => {
+    const image = new Image(res.send(req.body));
+    await image.save();
+    res.redirect('/images')
+});
+
+app.get('/images', async(req, res) => {
     const images = await Image.find({"private": false});
     res.render('images/public', {images});
 });
@@ -35,7 +48,6 @@ app.get('/images/private', async(req, res) => {
     res.render('images/private', {images});
 });
 
-app.get('')
 
 // app.get('/images/new', async (req, res) => {
 //     const image = new Image({"user_id": "Vijay", "url":"https://bit.ly/2XweeNg", "private": false});
