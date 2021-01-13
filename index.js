@@ -25,11 +25,23 @@ app.get('/', (req, res) => {
     res.render("home");
 });
 
-app.get('/images/new', async (req, res) => {
-    const image = new Image({"user_id": "Vijay", "url":"https://bit.ly/2XweeNg", "private": false});
-    await image.save();
-    res.send(image);
+app.get('/images/public', async(req, res) => {
+    const images = await Image.find({"private": false});
+    res.render('images/public', {images});
 });
+
+app.get('/images/private', async(req, res) => {
+    const images = await Image.find({"private": true});
+    res.render('images/private', {images});
+});
+
+app.get('')
+
+// app.get('/images/new', async (req, res) => {
+//     const image = new Image({"user_id": "Vijay", "url":"https://bit.ly/2XweeNg", "private": false});
+//     await image.save();
+//     res.send(image);
+// });
 
 app.listen(3000, () => {
     console.log("Example app listening at port 3000");
