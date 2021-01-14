@@ -6,7 +6,7 @@ const imageSchema = new Schema ({
     //"user_id": String,
     "title": String,
     "url": String,
-    "private": Boolean
+    "private": String
 });
 
 module.exports = mongoose.model('Image', imageSchema);

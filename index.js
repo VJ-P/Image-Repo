@@ -30,23 +30,25 @@ app.get('/', (req, res) => {
     res.render("home");
 });
 
+
+app.get('/images', async(req, res) => {
+    const images = await Image.find({"private": "false"});
+    res.render('images/public', {images});
+});
+
 app.get('/images/new', (req, res) => {
     res.render('images/new');
 });
 
 app.post('/images', async (req, res) => {
-    const image = new Image(res.send(req.body));
+    const image = new Image(req.body.image);
+    console.log(req.body.image)
     await image.save();
     res.redirect('/images')
 });
 
-app.get('/images', async(req, res) => {
-    const images = await Image.find({"private": false});
-    res.render('images/public', {images});
-});
-
 app.get('/images/private', async(req, res) => {
-    const images = await Image.find({"private": true});
+    const images = await Image.find({"private": "true"});
     res.render('images/private', {images});
 });
 

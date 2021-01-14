@@ -23,9 +23,9 @@ const seedDb = async() => {
     var title;
     for(i = 0; i < 10; i++) {
         title = "Picture " + i
-        a = new Image({"title": title, "url":"https://source.unsplash.com/collection/8469893", "private": false});
+        a = new Image({"title": title, "url":"https://source.unsplash.com/collection/8469893", "private": "false"});
         await a.save();
-        b = new Image({"title": title, "url":"https://source.unsplash.com/collection/433313", "private": true});
+        b = new Image({"title": title, "url":"https://source.unsplash.com/collection/433313", "private": "true"});
         await b.save();
     }
     console.log("Done seeding");
