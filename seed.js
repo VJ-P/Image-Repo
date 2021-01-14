@@ -16,14 +16,19 @@ db.once('open', function() {
 
 const seedDb = async() => {
     await Image.deleteMany({});
-    const i = new Image({"url":"https://bit.ly/2XweeNg", "private": false});
-    await i.save();
-    const j = new Image({"url":"https://bit.ly/2XDBGbi", "private": false});
-    await j.save();
-    const k = new Image({"url":"https://bit.ly/3sknQc7", "private": true});
-    await k.save();
-    const l = new Image({url":"https://bit.ly/3qhR5e2", "private": true});
-    await l.save();
+
+    var i;
+    var a;
+    var b;
+    var title;
+    for(i = 0; i < 10; i++) {
+        title = "Picture " + i
+        a = new Image({"title": title, "url":"https://source.unsplash.com/collection/8469893", "private": false});
+        await a.save();
+        b = new Image({"title": title, "url":"https://source.unsplash.com/collection/433313", "private": true});
+        await b.save();
+    }
+    console.log("Done seeding");
 }
 
 seedDb();
