@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Images</title>
-</head>
-<body>
-    <h1>New Image(s)</h1>
-    <form action="/images" method="POST">
-        <div>
-            <label for="url">URL</label>
-            <input type="text" id="url" name="image[url]">
-        </div>
-        <div>
-            <label for="privacy">Private Image(s)</label>
-            <select name="private" id="private">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-        </div>
-        <button>Add Image</button>
-    </form>
-</body>
-</html>
+<% layout('/layouts/boilerplate') %>
+
+<h1>New Image(s)</h1>
+
+<form action="/images" method="POST">
+    <div>
+        <label for="url">URL</label>
+        <input type="text" id="url" name="image[url]">
+    </div>
+    <div>
+        <label for="privacy">Private Image(s)</label>
+        <select name="private" id="private">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+    <button>Add Image</button>
+</form>
+
+<div>
+    <a href="/images">Back</a>
+</div>

@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require("express");
 const mongoose = require('mongoose');
+const ejsMate = require('ejs-mate');
 const Image = require('./models/image');
 const e = require('express');
 
@@ -19,6 +20,7 @@ db.once('open', function() {
 
 const app = express();
 
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
