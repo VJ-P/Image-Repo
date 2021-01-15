@@ -6,15 +6,16 @@
         <form action="/" method="POST">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="image[title]">
+                <input class="form-control" type="text" id="title" name="image[title]" required>
             </div>
             <div class="mb-3">
                 <label class="form-label for="url">URL</label>
-                <input class="form-control type="text" id="url" name="image[url]">
+                <input class="form-control type="text" id="url" name="image[url]" required>
             </div>
             <div class="mb-3">
-                <label class="form-label for="url">Description</label>
-                <input class="form-control type="text" id="description" name="image[description]">
+                <label class="form-label for="description">Description</label>
+                <!-- <input class="form-control type="text" id="description" name="image[description]" required> -->
+                <textarea class="form-control" id="description" name="image[description]" rows="3" required></textarea>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Add Image</button>
