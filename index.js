@@ -24,6 +24,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({extended: true}));
+app.use(express.static('public'));
 
 app.get('/', async(req, res) => {
     const images = await Image.find();
@@ -33,7 +34,7 @@ app.get('/', async(req, res) => {
 app.post('/', async (req, res) => {
     const image = new Image(req.body.image);
     await image.save();
-    res.redirect('/images');
+    res.redirect('/');
 });
 
 app.get('/new', (req, res) => {

@@ -1,16 +1,12 @@
 <% layout('/layouts/boilerplate') %>
 
-<h1>Images</h1>
-
-<p><%= images.length %></p>
-
-<!-- <% for (let image of images) { %>
-    <img src="<%= image.url %>/400x300" class="img-fluid" alt="Responsive image">
-<% } %> -->
-
-<% for (let image of images) { %>
-    <figure class="figure">
-        <img src="<%= image.url %>/400x300" class="figure-img img-fluid rounded">
-        <figcaption class="figure-caption"><%= image.title %></figcaption>
-    </figure>
-<% } %>
+<div class="wrapper">
+    <h1>Images</h1>
+    <div class="img-area">
+        <% for (let image of images) { %>
+        <div class="single-img">
+            <img src="<%= image.url %>" width="600" height="400" alt="<%= image.title %>">
+        </div>
+        <% }; %>
+    </div>
+</div>
