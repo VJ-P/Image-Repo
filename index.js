@@ -1,5 +1,6 @@
 const path = require("path");
 const express = require("express");
+const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const Image = require("./models/image");
@@ -25,6 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 
 app.get('/', async(req, res) => {
     const images = await Image.find();
@@ -41,6 +43,12 @@ app.get('/new', (req, res) => {
     res.render('images/new');
 });
 
+app.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+    console.log("Trys to delete " + id)
+    await Image.findByIdAndDelete(id);
+    res.redirect('/');
+});
 
 app.listen(3000, () => {
     console.log("Example app listening at port 3000");

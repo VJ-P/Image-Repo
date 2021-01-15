@@ -16,7 +16,9 @@
                         <%= image.description %>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger">Delete Image</button>
+                        <form action="/<%=image.id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-outline-danger">Delete Image</button>
+                        </form>
                     </div>
                 </div>
             </div>
