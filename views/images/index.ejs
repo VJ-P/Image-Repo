@@ -1,0 +1,13 @@
+<% layout('/layouts/boilerplate') %>
+
+<h1>Images</h1>
+
+<ul>
+    <p><%= images %></p>
+
+    <% for (let image of images) { %>
+        <div>
+            <img src="<%= image.url %>">
+        </div>
+    <% } %>
+</ul>

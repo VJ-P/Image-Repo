@@ -3,7 +3,7 @@
 <div class="row">
     <h1 class="text-center">New Image(s)</h1>
     <div class="col-6 offset-3">
-        <form action="/images" method="POST">
+        <form action="/" method="POST">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="image[title]">
@@ -13,16 +13,12 @@
                 <input class="form-control type="text" id="url" name="image[url]">
             </div>
             <div class="mb-3">
-                <label for="private">Private Image(s)</label>
-                <select class="form-control" name="image[private]" id="private">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                </select>
+                <label class="form-label for="url">Description</label>
+                <input class="form-control type="text" id="description" name="image[description]">
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Add Image</button>
             </div>
         </form>
-
     </div>
 </div>

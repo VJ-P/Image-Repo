@@ -1,9 +1,8 @@
-const path = require('path');
+const path = require("path");
 const express = require("express");
-const mongoose = require('mongoose');
-const ejsMate = require('ejs-mate');
-const Image = require('./models/image');
-const e = require('express');
+const mongoose = require("mongoose");
+const ejsMate = require("ejs-mate");
+const Image = require("./models/image");
 
 // Add connection to local mongodb database
 mongoose.connect('mongodb://localhost:27017/image-repo', {
@@ -24,41 +23,24 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: true}));
 
-app.get('/', (req, res) => {
-    res.render("home");
+app.get('/', async(req, res) => {
+    const images = await Image.find();
+    res.render('images/index', {images});
 });
 
-
-app.get('/images', async(req, res) => {
-    const images = await Image.find({"private": "false"});
-    res.render('images/public', {images});
+app.post('/', async (req, res) => {
+    const image = new Image(req.body.image);
+    await image.save();
+    res.redirect('/images');
 });
 
-app.get('/images/new', (req, res) => {
+app.get('/new', (req, res) => {
     res.render('images/new');
 });
 
-app.post('/images', async (req, res) => {
-    const image = new Image(req.body.image);
-    console.log(req.body.image)
-    await image.save();
-    res.redirect('/images')
-});
-
-app.get('/images/private', async(req, res) => {
-    const images = await Image.find({"private": "true"});
-    res.render('images/private', {images});
-});
-
-
-// app.get('/images/new', async (req, res) => {
-//     const image = new Image({"user_id": "Vijay", "url":"https://bit.ly/2XweeNg", "private": false});
-//     await image.save();
-//     res.send(image);
-// });
 
 app.listen(3000, () => {
     console.log("Example app listening at port 3000");
-})
+});
