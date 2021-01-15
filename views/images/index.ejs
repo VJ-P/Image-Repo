@@ -2,12 +2,15 @@
 
 <h1>Images</h1>
 
-<ul>
-    <p><%= images %></p>
+<p><%= images.length %></p>
 
-    <% for (let image of images) { %>
-        <div>
-            <img src="<%= image.url %>">
-        </div>
-    <% } %>
-</ul>
+<!-- <% for (let image of images) { %>
+    <img src="<%= image.url %>/400x300" class="img-fluid" alt="Responsive image">
+<% } %> -->
+
+<% for (let image of images) { %>
+    <figure class="figure">
+        <img src="<%= image.url %>/400x300" class="figure-img img-fluid rounded">
+        <figcaption class="figure-caption"><%= image.title %></figcaption>
+    </figure>
+<% } %>
