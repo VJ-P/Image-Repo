@@ -11,8 +11,10 @@ cloudinary.config({
 // Set up instance of cloudinary
 const storage = new CloudinaryStorage({
     cloudinary,
-    folder:'Image-Repo',
-    allowedFormats: ['jpeg', 'png', '']
+    params: {
+        folder:'Image-Repo',
+        allowedFormats: ['jpeg', 'png', 'jpg']
+    }
 });
 
 module.exports = {
