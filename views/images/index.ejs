@@ -13,7 +13,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <%= image.description %>
+                        <div class="mb-3">
+                            <%= image.description %>
+                        </div>
+                        <a href="<%= image.url %>">View Full Image</a>
                     </div>
                     <div class="modal-footer">
                         <form action="/<%=image.id%>?_method=DELETE" method="POST">
