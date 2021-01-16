@@ -8,7 +8,7 @@ const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const multer = require("multer"); // Multer is used to manage and route file uploading/storage
-const {storage} = require('./cloudinary');
+const {storage, cloudinary} = require('./cloudinary');
 const upload = multer({ storage });
 
 const Image = require("./models/image");
@@ -60,6 +60,8 @@ app.get('/new', (req, res) => {
 
 app.delete('/:id', async (req, res) => {
     const { id } = req.params;
+    const image = await Image.findById(id);
+    await cloudinary.uploader.destroy(image.filename);
     await Image.findByIdAndDelete(id);
     res.redirect('/');
 });
