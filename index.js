@@ -1,8 +1,16 @@
+if(process.env.NODE_ENV !== "production") {
+    require('dotenv').config();
+}
+
 const path = require("path");
 const express = require("express");
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
+const multer = require("multer"); // Multer is used to manage and route file uploading/storage
+const {storage} = require('./cloudinary');
+const upload = multer({ storage });
+
 const Image = require("./models/image");
 
 // Add connection to local mongodb database
@@ -33,10 +41,12 @@ app.get('/', async(req, res) => {
     res.render('images/index', {images});
 });
 
-app.post('/', async (req, res) => {
-    const image = new Image(req.body.image);
-    await image.save();
-    res.redirect('/');
+app.post('/', upload.array('image'), async (req, res) => {
+    // const image = new Image(req.body.image);
+    // await image.save();
+    // res.redirect('/');
+    console.log(req.body, req.files)
+    res.send("Done")
 });
 
 app.get('/new', (req, res) => {
