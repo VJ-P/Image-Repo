@@ -45,7 +45,6 @@ app.get('/new', (req, res) => {
 
 app.delete('/:id', async (req, res) => {
     const { id } = req.params;
-    console.log("Trys to delete " + id)
     await Image.findByIdAndDelete(id);
     res.redirect('/');
 });
