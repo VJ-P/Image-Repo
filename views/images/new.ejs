@@ -4,15 +4,11 @@
     <h1 class="text-center">New Image(s)</h1>
     <div class="col-6 offset-3">
         <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" id="" multiple>
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="image[title]" required>
             </div>
-            <input type="file" name="image" id="" multiple>
-            <!-- <div class="mb-3">
-                <label class="form-label for="url">URL</label>
-                <input class="form-control type="text" id="url" name="image[url]" required>
-            </div> -->
             <div class="mb-3">
                 <label class="form-label for="description">Description</label>
                 <!-- <input class="form-control type="text" id="description" name="image[description]" required> -->
