@@ -45,8 +45,13 @@ app.post('/', upload.array('image'), async (req, res) => {
     // const image = new Image(req.body.image);
     // await image.save();
     // res.redirect('/');
-    console.log(req.body, req.files)
-    res.send("Done")
+    for (let cloudImage of req.files) {
+        let image = new Image(req.body.image);
+        image.url = cloudImage.path;
+        image.filename = cloudImage.filename;
+        await image.save();
+    }
+    res.redirect('/');
 });
 
 app.get('/new', (req, res) => {
