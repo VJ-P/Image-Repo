@@ -66,6 +66,11 @@ app.delete('/:id', async (req, res) => {
     res.redirect('/');
 });
 
+//The 404 Route
+app.get('*', function(req, res){
+    res.status(404).send('404 Not Found');
+});
+
 app.listen(3000, () => {
     console.log("Example app listening at port 3000");
 });
