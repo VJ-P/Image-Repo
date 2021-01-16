@@ -1,10 +1,12 @@
 <% layout('/layouts/boilerplate') %>
 
 <div class="row">
-    <h1 class="text-center">New Image(s)</h1>
+    <h1 class="text-center mb-3">New Image(s)</h1>
     <div class="col-6 offset-3">
         <form action="/" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image" id="" multiple>
+            <div class="mb-3">
+                <input type="file" name="image" accept=".jpg,.png,.jpeg" id="" multiple>
+            </div>
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="image[title]" required>

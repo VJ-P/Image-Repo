@@ -1,7 +1,7 @@
 .icon{
     color: #ffffff;
     font-size:60px;
-    margin: 3% 2%;
+    margin: 2% 2%;
   }
 
 .icon:hover{
@@ -28,4 +28,8 @@
 img:hover{
     opacity: .5;
     transition: .9s;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
 }
