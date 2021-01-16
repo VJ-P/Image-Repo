@@ -21,7 +21,9 @@ This project utilizes Cloudinary to store image files and a MongoDB server to st
 4. Create a file in the root directory of the project called ".env" which contains the credentials for the Cloudinary account. In the file insert the following variables and their values from Cloudinary (found on the Dashboard page under Account Details).
 
    `CLOUDINARY_CLOUD_NAME=${Cloud name}`
+
    `CLOUDINARY_KEY=${API Key}`
+   
    `CLOUDINARY_SECRET=${API Secret}`
 
 5. To run locally, use the following command:
