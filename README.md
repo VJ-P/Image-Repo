@@ -54,9 +54,15 @@ This project utilizes Cloudinary to store image files and a MongoDB server to st
    DB_URL=${Database URL}
    ```
 
-5. To run locally, use the following command:
+5. Add the port number you want to run the app on to .env:
+
+   ```
+   PORT=${Port Number}
+   ```
+
+6. To run locally, use the following command:
 
    ```
    node index.js
    ```
-6. Open up browser to http://localhost:3000/
+7. Open up browser to http://localhost:3000/
