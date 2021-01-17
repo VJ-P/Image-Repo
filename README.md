@@ -19,9 +19,11 @@ This project utilizes Cloudinary to store image files and a MongoDB server to st
 
 3. Create a file in the root directory of the project called ".env" which contains the credentials for the Cloudinary account. In the file insert the following variables and their values from Cloudinary (found on the Dashboard page under Account Details).
 
-   `CLOUDINARY_CLOUD_NAME=${Cloud name}`
-   `CLOUDINARY_KEY=${API Key}`
-   `CLOUDINARY_SECRET=${API Secret}`
+   ```
+   CLOUDINARY_CLOUD_NAME=${Cloud name}
+   CLOUDINARY_KEY=${API Key}
+   CLOUDINARY_SECRET=${API Secret}
+   ```
 
 4. Add MongoDB database url to .env file. For local development use 'mongodb://localhost:27017/image-repo'. If used MongoDB Atlas, use the link provided by Atlas.
 
