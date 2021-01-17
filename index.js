@@ -73,6 +73,7 @@ app.get('*', function(req, res){
     res.status(404).send('404 Not Found');
 });
 
-app.listen(3000, () => {
-    console.log("Example app listening at port 3000");
+const port = process.env.PORT;
+app.listen(port, () => {
+    console.log("Example app listening at port "+port);
 });
