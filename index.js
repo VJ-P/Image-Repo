@@ -13,8 +13,10 @@ const upload = multer({ storage });
 
 const Image = require("./models/image");
 
-// Add connection to local mongodb database
-mongoose.connect('mongodb://localhost:27017/image-repo', {
+// Add connection to mongodb atlas database
+const dbURL = process.env.DB_URL;
+//mongoose.connect('mongodb://localhost:27017/image-repo', {
+mongoose.connect(dbURL, {
     useNewUrlParser: true,
     useCreateIndex: true,  // Uses createIndex() instead of ensureIndex() to avoid deprecation warnings
     useUnifiedTopology: true
