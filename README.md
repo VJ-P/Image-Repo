@@ -10,13 +10,15 @@ This project utilizes Cloudinary to store image files and a MongoDB server to st
 
 1. Clone the repository:
 
-   `git clone https://github.com/VJ-P/Image-Repo.git`
+   ```
+   git clone https://github.com/VJ-P/Image-Repo.git
+   ```
 
 2. Download dependencies for the project:
-
-   `npm install`
-
-
+   
+   ```
+   npm install
+   ```
 3. Create a file in the root directory of the project called ".env" which contains the credentials for the Cloudinary account. In the file insert the following variables and their values from Cloudinary (found on the Dashboard page under Account Details).
 
    ```
@@ -27,9 +29,13 @@ This project utilizes Cloudinary to store image files and a MongoDB server to st
 
 4. Add MongoDB database url to .env file. For local development use 'mongodb://localhost:27017/image-repo'. If used MongoDB Atlas, use the link provided by Atlas.
 
-   `DB_URL=${Database URL}`
-
+   ```
+   DB_URL=${Database URL}
+   ```
 
 5. To run locally, use the following command:
 
-   `node index.js`
+   ```
+   node index.js
+   ```
+6. Open up browser to http://localhost:3000/
