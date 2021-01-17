@@ -2,6 +2,27 @@
 
 By: Vijay Patel
 
+## How to Use
+
+The app is currently hosted on Heroku at https://nameless-mountain-33431.herokuapp.com/
+
+### Adding an Image(s)
+
+1. Click on "New" in the navbar
+2. Click "Browse..." and select images. Currently only file types of .jpg, .jpeg, .png, and .gif are allowed.
+3. Add a title and description. (These are required fields). If multiple images were selected, they will have the same Title and Description.
+4. Click "Add Image" and the image will now be shown in the home page.
+
+### Viewing an Image
+
+1. Click an Image and a modal will appear containing the Title, Description, a link to the Image Source for Saving, and a Delete button.
+
+### Deleting an Image
+
+1. Click on an image.
+2. Press the delete button in the modal.
+
+
 ## How to run locally:
 
 This application is built using Node.js runtime environment, Express.js web application framework, and the frontend is rendered using Embedded JavaScript (EJS) templates.
